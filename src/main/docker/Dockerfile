@@ -13,5 +13,5 @@ VOLUME /root/.m2
 CMD ["mvn"]
 
 RUN git clone https://github.com/ashishse/springdocker.git
-RUN cd springdocker
+RUN cd /springdocker
 RUN mvn package
