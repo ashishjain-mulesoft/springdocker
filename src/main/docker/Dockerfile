@@ -11,7 +11,10 @@ ENV MAVEN_HOME /usr/share/maven
 VOLUME /root/.m2
 
 CMD ["mvn"]
-
-RUN git clone https://github.com/ashishse/springdocker.git
-RUN cd /springdocker
-RUN mvn package
+RUN rm -rf /springdocker/
+RUN git clone https://github.com/ashishse/springdocker.git /springdocker
+RUN cd /springdocker &&  mvn package
+RUN cd /springdocker/target && cp springdocker-0.0.1.jar app.jar
+RUN sh -c 'touch /app.jar'
+ENV JAVA_OPTS=""
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
