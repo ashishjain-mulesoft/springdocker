@@ -22,6 +22,16 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>1.11.95</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-s3</artifactId>
+		    <version>1.11.95</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -45,9 +55,9 @@
 					<imageName>${project.artifactId}</imageName>
 					<dockerDirectory>ashishjain07</dockerDirectory>
 					<imageTags>
-			           <imageTag>${project.version}</imageTag>
-			           <imageTag>latest</imageTag>
-			        </imageTags>
+						<imageTag>${project.version}</imageTag>
+						<imageTag>latest</imageTag>
+					</imageTags>
 					<dockerDirectory>src/main/docker</dockerDirectory>
 					<resources>
 						<resource>
